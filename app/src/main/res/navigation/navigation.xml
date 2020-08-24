@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.cherie.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_todaySpecialFragment"
+            app:destination="@id/todaySpecialFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cakeAndDessertFragment"
+            app:destination="@id/cakeAndDessertFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/todaySpecialFragment"
+        android:name="com.example.cherie.TodaySpecialFragment"
+        android:label="fragment_today_special"
+        tools:layout="@layout/fragment_today_special" />
+    <fragment
+        android:id="@+id/cakeAndDessertFragment"
+        android:name="com.example.cherie.CakeAndDessertFragment"
+        android:label="fragment_cake_and_dessert"
+        tools:layout="@layout/fragment_cake_and_dessert" />
+</navigation>
