@@ -94,7 +94,7 @@
                     android:id="@+id/todaySpecial"
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
-                    android:scaleType="fitXY"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/cake5" />
 
                 <TextView
@@ -107,7 +107,7 @@
                     android:id="@+id/cakeAndDessert"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:scaleType="fitXY"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/cake6"/>
 
             </LinearLayout>
