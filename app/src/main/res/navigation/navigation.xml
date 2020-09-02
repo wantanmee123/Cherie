@@ -22,10 +22,30 @@
         android:id="@+id/todaySpecialFragment"
         android:name="com.example.cherie.TodaySpecialFragment"
         android:label="fragment_today_special"
-        tools:layout="@layout/fragment_today_special" />
+        tools:layout="@layout/fragment_today_special" >
+        <action
+            android:id="@+id/action_todaySpecialFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cakeAndDessertFragment"
         android:name="com.example.cherie.CakeAndDessertFragment"
         android:label="fragment_cake_and_dessert"
-        tools:layout="@layout/fragment_cake_and_dessert" />
+        tools:layout="@layout/fragment_cake_and_dessert" >
+        <action
+            android:id="@+id/action_cakeAndDessertFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.cherie.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.cherie.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
 </navigation>
