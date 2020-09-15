@@ -1,14 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".CakeAndDessertFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="hello cake and dessert fragment" />
+        android:orientation="vertical">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="219dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="183dp"
+                android:layout_height="165dp"
+                android:layout_marginTop="50dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cake1" />
+
+            <TextView
+                android:id="@+id/menu1"
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:layout_marginTop="50dp"
+                android:text=" Name: Cake1 \n Price: 12"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnMenu1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_border"
+            android:text="Add To Cart" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="219dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="183dp"
+                android:layout_height="165dp"
+                android:layout_marginTop="50dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cake4" />
+
+            <TextView
+                android:id="@+id/menu4"
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:layout_marginTop="50dp"
+                android:text=" Name: Cake4 \n Price: 12"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnMenu4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_border"
+            android:text="Add To Cart" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="219dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="183dp"
+                android:layout_height="165dp"
+                android:layout_marginTop="50dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cake5" />
+
+            <TextView
+                android:id="@+id/menu5"
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:layout_marginTop="50dp"
+                android:text=" Name: Cake5 \n Price: 12"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnMenu5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_border"
+            android:text="Add To Cart" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="219dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="183dp"
+                android:layout_height="165dp"
+                android:layout_marginTop="50dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cake6" />
+
+            <TextView
+                android:id="@+id/menu6"
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:layout_marginTop="50dp"
+                android:text=" Name: Cake6 \n Price: 12"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnMenu6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_border"
+            android:text="Add To Cart" />
+
+    </LinearLayout>
+    </ScrollView>
+</layout>

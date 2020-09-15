@@ -1,10 +1,12 @@
 package com.example.cherie
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.firebase.firestore.FirebaseFirestore
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,6 +25,22 @@ class CakeAndDessertFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val db = FirebaseFirestore.getInstance()
+
+        val docRef = db.collection("menu").document("cake1")
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    Log.d("exist", "DocumentSnapshot data: ${document.data}")
+                } else {
+                    Log.d("noexist", "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("errordb", "get failed with ", exception)
+            }
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
