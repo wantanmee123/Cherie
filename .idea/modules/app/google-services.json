@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "19771231973",
+    "firebase_url": "https://cherie-49856.firebaseio.com",
+    "project_id": "cherie-49856",
+    "storage_bucket": "cherie-49856.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:19771231973:android:11df8c8d728c0a9cff4e0c",
+        "android_client_info": {
+          "package_name": "com.example.cherie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "19771231973-7t8ul8t9glang7h1rfllg871bp8ie160.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cherie",
+            "certificate_hash": "eaf6fd28c08d938c6e4791487ea8a37d74ce4412"
+          }
+        },
+        {
+          "client_id": "19771231973-6dm59fqfj185mjmsu9ggifctb96hoabg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVdBcZC_5t4JaML8ZhhffJjKM7wF9nYKU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "19771231973-6dm59fqfj185mjmsu9ggifctb96hoabg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
