@@ -1,10 +1,28 @@
 package com.example.cherie
 
+import android.content.ClipData
+import android.content.Context
+import android.content.Context.INPUT_METHOD_SERVICE
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.ListView
+import android.widget.Toast
+import androidx.annotation.RequiresApi
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_about.*
+import kotlinx.android.synthetic.main.fragment_cart.*
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.collections.HashMap
+import androidx.core.content.ContextCompat.getSystemService as getSystemService1
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,12 +39,38 @@ class AboutFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    lateinit var ref : DatabaseReference
+    lateinit var cartList:MutableList<ClipData.Item>
+    lateinit var listView: ListView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+    }
+
+    private fun saveStore(feedback:String){
+        val sdf = SimpleDateFormat ("yyyy/MM/dd HH:mm:ss")
+        val now = Date()
+
+        val fb = FirebaseFirestore.getInstance()
+        val feedbackTable: MutableMap<String, Any> = HashMap()
+        feedbackTable["Desc"] = feedback
+        feedbackTable["Date"] = sdf.format(now)
+
+
+        fb.collection("feedbackTable")
+            .add(feedbackTable)
+            .addOnSuccessListener {
+                Toast.makeText(activity, "Feedback submitted successfully ", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener{
+                Toast.makeText(activity, "Feedback failed to submit ", Toast.LENGTH_SHORT).show()
+            }
     }
 
     override fun onCreateView(
@@ -35,6 +79,41 @@ class AboutFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_about, container, false)
+    }
+
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        btnSubmit.setOnClickListener() {
+            val text = feedback_text.text.toString()
+            saveStore(text)
+            val inputMethodManager =
+                context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+
+       readStore()
+    }
+
+
+    private fun readStore() {
+        val fb = FirebaseFirestore.getInstance()
+        fb.collection("feedbackTable")
+            .get().addOnCompleteListener{
+
+                val result: StringBuffer = StringBuffer()
+
+                if(it.isSuccessful){
+                    for(document in it.result!!){
+                        result.append("Feedback : ").append(document.data.getValue("Desc")).append("\n")
+                            .append("Date : ").append(document
+                                .data.getValue("Date")).append("\n\n")
+                    }
+                    txt1.setText(result)
+                }
+            }
     }
 
     companion object {

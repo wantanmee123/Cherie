@@ -1,5 +1,6 @@
 package com.example.cherie
 
+import android.content.ClipData
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -27,7 +28,7 @@ class CartFragment : Fragment() {
     private var param2: String? = null
 
     lateinit var ref : DatabaseReference
-    lateinit var cartList:MutableList<Item>
+    lateinit var cartList:MutableList<ClipData.Item>
     lateinit var listView: ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
