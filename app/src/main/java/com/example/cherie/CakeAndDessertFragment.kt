@@ -6,7 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_cake_and_dessert.*
+import kotlinx.android.synthetic.main.fragment_today_special.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,22 +31,63 @@ class CakeAndDessertFragment : Fragment() {
 
         val db = FirebaseFirestore.getInstance()
 
-        val docRef = db.collection("menu").document("cake1")
-        docRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    Log.d("exist", "DocumentSnapshot data: ${document.data}")
-                } else {
-                    Log.d("noexist", "No such document")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.d("errordb", "get failed with ", exception)
-            }
+
 
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+        }
+    }
+
+    private fun saveFireStore(itemName: String, price: Double, quantity: Int){
+        val db = FirebaseFirestore.getInstance()
+        val cart: MutableMap<String, Any> = HashMap()
+        cart["itemName"] = itemName
+        cart["price"] = price
+        cart["quantity"] = quantity
+
+        db.collection("cart")
+            .add(cart)
+            .addOnSuccessListener {
+                Toast.makeText(activity, "Record added successfully ", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener{
+                Toast.makeText(activity, "Record failed to add ", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        btnMenu1.setOnClickListener{
+            val itemName = "Cake 1"
+            val price = 10.0
+            val quantity = 1
+
+            saveFireStore(itemName, price, quantity)
+        }
+
+        btnMenu4.setOnClickListener{
+            val itemName = "Cake 4"
+            val price = 12.0
+            val quantity = 1
+
+            saveFireStore(itemName, price, quantity)
+        }
+
+        btnMenu5.setOnClickListener{
+            val itemName = "Cake 5"
+            val price = 13.0
+            val quantity = 1
+
+            saveFireStore(itemName, price, quantity)
+        }
+
+        btnMenu6.setOnClickListener{
+            val itemName = "Cake 6"
+            val price = 14.0
+            val quantity = 1
+
+            saveFireStore(itemName, price, quantity)
         }
     }
 

@@ -3,11 +3,14 @@ package com.example.cherie
 import android.os.Bundle
 import android.view.*
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.cherie.databinding.FragmentHomeBinding
+import kotlinx.android.synthetic.main.fragment_today_special.*
+import com.google.firebase.firestore.FirebaseFirestore
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
