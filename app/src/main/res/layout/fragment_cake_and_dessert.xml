@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="67dp"
                 android:layout_marginTop="50dp"
-                android:text=" Name: Cake1 \n Price: 12"
+                android:text=" Name: Cake1 \n Price: 10"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="67dp"
                 android:layout_marginTop="50dp"
-                android:text=" Name: Cake5 \n Price: 12"
+                android:text=" Name: Cake5 \n Price: 13"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -119,7 +119,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="67dp"
                 android:layout_marginTop="50dp"
-                android:text=" Name: Cake6 \n Price: 12"
+                android:text=" Name: Cake6 \n Price: 14"
                 android:textSize="20sp" />
 
         </LinearLayout>
