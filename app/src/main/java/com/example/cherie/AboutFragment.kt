@@ -106,7 +106,7 @@ class AboutFragment : Fragment() {
         fb.collection("feedbackTable")
             .get().addOnCompleteListener{
 
-                val result: StringBuffer = StringBuffer()
+                val result = StringBuffer()
 
                 if(it.isSuccessful){
                     for(document in it.result!!){
