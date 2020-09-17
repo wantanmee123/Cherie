@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ListView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_about.*
@@ -56,11 +57,13 @@ class AboutFragment : Fragment() {
     private fun saveStore(feedback:String){
         val sdf = SimpleDateFormat ("yyyy/MM/dd HH:mm:ss")
         val now = Date()
-
+        val auth = FirebaseAuth.getInstance()
+        val userID = auth.currentUser?.email.toString()
         val fb = FirebaseFirestore.getInstance()
-        val feedbackTable: MutableMap<String, Any> = HashMap()
+        val feedbackTable: MutableMap<String, Any?> = HashMap()
         feedbackTable["Desc"] = feedback
         feedbackTable["Date"] = sdf.format(now)
+        feedbackTable["UserID"] = userID
 
 
         fb.collection("feedbackTable")
@@ -108,8 +111,8 @@ class AboutFragment : Fragment() {
                 if(it.isSuccessful){
                     for(document in it.result!!){
                         result.append("Feedback : ").append(document.data.getValue("Desc")).append("\n")
-                            .append("Date : ").append(document
-                                .data.getValue("Date")).append("\n\n")
+                            .append("Date : ").append(document.data.getValue("Date")).append("\n")
+                            .append("User : ").append(document.data.getValue("UserID")).append("\n\n")
                     }
                     txt1.setText(result)
                 }
